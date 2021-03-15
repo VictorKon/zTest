@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) Victor Konchalenko
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="VictorKon_ZTest::css/ztest.css" />
+    </head>
+    <body>
+        <referenceBlock name="header.links">
+            <block class="VictorKon\ZTest\Block\Status" name="ztest-status-top" template="VictorKon_ZTest::status.phtml">
+                <arguments>
+                    <argument name="sortOrder" xsi:type="number">150</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

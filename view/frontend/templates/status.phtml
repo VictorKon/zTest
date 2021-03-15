@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright (c) Victor Konchalenko
+ */
+/** @var \VictorKon\ZTest\Block\Status $block */
+?>
+<li class="ztest-status-top-container" data-bind="scope: 'ztest'">
+    <span class="ztest-status-top-label"><?= $block->escapeHtml(__('Status:')) ?></span>
+    <span class="ztest-status-top-value" data-bind="text: ztest().status">-</span>
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "ztest": {
+                        "component": "VictorKon_ZTest/js/ztest"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</li>
