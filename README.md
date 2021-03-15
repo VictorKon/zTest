@@ -1,7 +1,7 @@
-# Test task for Z company
+# Test task from a company
 
 
-### The task (what does the module do)
+### The task / ToDo
 
 #### Frontend:
 
