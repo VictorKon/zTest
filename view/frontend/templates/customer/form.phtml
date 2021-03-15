@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright (c) Victor Konchalenko
+ */
+/** @var \VictorKon\ZTest\Block\Customer\Form $block */
+?>
+<?= $block->getChildHtml('ztest.customer.form.before') ?>
+<form id="form-validate" class="form ztest-customer-form" action="<?= $block->escapeUrl($block->getAction()) ?>" method="post">
+    <fieldset class="fieldset">
+        <?= $block->getBlockHtml('formkey') ?>
+        <legend class="legend"><span><?= $block->escapeHtml(__('Z Test Form')) ?></span></legend><br>
+        <div class="field field-name-ztest_status">
+            <label for="ztest_status" class="label"><span><?= $block->escapeHtml(__('Status')) ?></span></label>
+            <div class="control">
+                <input type="text" name="ztest_status" id="ztest_status" class="input-text"
+                   value="<?= $block->escapeHtmlAttr($block->getZTestStatus()) ?>" 
+                   title="<?= $block->escapeHtmlAttr(__('Status')) ?>" />
+            </div>
+            
+        </div>
+        <?= $block->getChildHtml('ztest.customer.form.inside') ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary"><button type="submit" title="<?= $block->escapeHtmlAttr(__('Save')) ?>" class="action save primary"><span><?= $block->escapeHtml(__('Save')) ?></span></button></div>
+        <div class="secondary"><a class="action back" href="<?= $block->escapeUrl($block->getBackUrl()) ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a></div>
+    </div>
+</form>
+<?= $block->getChildHtml('ztest.customer.form.after') ?>

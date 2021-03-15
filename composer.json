@@ -1,0 +1,29 @@
+{
+    "name": "victorkon/ztest",
+    "description": "Test task for Z company",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Victor Konchalenko",
+            "email": "victorkonco@gmail.com",
+            "homepage": "https://github.com/VictorKon",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "magento/framework": "^103.0.2",
+        "magento/module-customer": "^103.0"
+    },
+    "license": [
+      "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "VictorKon\\ZTest\\": "app/code/VictorKon/ZTest"
+        }
+    }
+}
