@@ -18,7 +18,10 @@ class Form extends \Magento\Customer\Block\Account\Dashboard
      */
     public function getZTestStatus()
     {
-        return $this->getCustomer()->getCustomAttribute(StatusInterface::ZTEST_STATUS_ATTR_CODE)->getValue();
+        /** @var \Magento\Framework\Api\AttributeInterface|null $attribute */
+        $attribute = $this->getCustomer()->getCustomAttribute(StatusInterface::ZTEST_STATUS_ATTR_CODE);
+
+        return $attribute ? $attribute->getValue() : null;
     }
 
     /**

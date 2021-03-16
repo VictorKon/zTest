@@ -64,10 +64,10 @@ class Save extends \VictorKon\ZTest\Controller\Customer implements HttpPostActio
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         CustomerRepository $customerRepository
     ) {
+        parent::__construct($context, $customerSession);
         $this->storeManager = $storeManager;
         $this->formKeyValidator = $formKeyValidator;
         $this->customerRepository = $customerRepository;
-        parent::__construct($context, $customerSession);
     }
 
     /**
@@ -95,6 +95,9 @@ class Save extends \VictorKon\ZTest\Controller\Customer implements HttpPostActio
                     $customer->setCustomAttribute(StatusInterface::ZTEST_STATUS_ATTR_CODE,
                         $this->getRequest()->getParam(StatusInterface::ZTEST_STATUS_ATTR_CODE)
                     );
+
+                    // Set ignore_validation_flag to skip unnecessary address and customer validation
+                    $customer->setData('ignore_validation_flag', true);
 
                     $this->customerRepository->save($customer);
                     $this->_eventManager->dispatch(

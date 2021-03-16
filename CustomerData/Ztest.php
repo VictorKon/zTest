@@ -38,8 +38,12 @@ class Ztest implements SectionSourceInterface
 
         /** @var \Magento\Customer\Api\Data\CustomerInterface */
         $customer = $this->currentCustomer->getCustomer();
+
+        /** @var \Magento\Framework\Api\AttributeInterface|null $attribute */
+        $attribute = $customer->getCustomAttribute(StatusInterface::ZTEST_STATUS_ATTR_CODE);
+
         return [
-            'status' => $customer->getCustomAttribute(StatusInterface::ZTEST_STATUS_ATTR_CODE)->getValue()
+            'status' => $attribute ? $attribute->getValue() : null
         ];
     }
 }
